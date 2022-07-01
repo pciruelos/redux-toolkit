@@ -15,24 +15,30 @@ const TaskList = () => {
 
  console.log(tasks)
   return (
-    <div>
-      <header>
+    <div className='w-4/6'>
+      <header className='flex justify-between items-center py-4'>
         <h1>task {tasks.length}</h1>
-        <Link to='/create-task'>
+        <Link to='/create-task' className='bg-indigo-600 px-2 py-1 rounded-sm text-sm '>
         create a task
         </Link>
       </header>
+      <div className='grid grid-cols-3 gap-4'>
       {tasks.map(t => (
-        <div key={t.id}>
-          <h3>{t.title}</h3>
-          <p>{t.description}</p>
-          <button onClick={() => handleDelete(t.id)}>Delete</button>
-          <Link to={`/edit-task/${t.id}`}>
+        <div key={t.id} className='bg-neutral-800 p-4 rounded-md'>
+          <header className=''>
+            <h1 className='text-center'>{t.title}</h1>
+            <p className='p-2'>{t.description}</p>
+          </header>
+         <div className='flex justify-between items-center gapx-2'>
+         <button className='bg-red-900 px-2 py-1 rounded-sm text-sm' onClick={() => handleDelete(t.id)}>Delete</button>
+          <Link className='bg-green-900 px-2 py-1 rounded-sm text-sm' to={`/edit-task/${t.id}`}>
           EDITA
           </Link>
+         </div>
           </div>
       ))
       }
+      </div>
 
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, editTask } from "../features/tasks/taskSlice";
 import { v4 as ui } from "uuid";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const TaskForm = () => {
   const [task, setTask] = useState({
@@ -45,7 +45,7 @@ const TaskForm = () => {
   }, [params.id,tasks]);
 
   return (
-    <form className="bg-zinc-800 max-w-sm p-4 mb-1">
+    <form className="bg-zinc-800 max-w-sm p-4 mb-1 min-w-[330px]">
       <label
       className="block text-sm font-bold mb-2"
       htmlFor="title">Task:</label>
@@ -69,7 +69,12 @@ const TaskForm = () => {
         onChange={handleChange}
         value={task.description}
       ></textarea>
-      <button onClick={handleSubmit}>Guardar</button>
+      <div className="flex justify-between items-center">
+      <button className='bg-[#0065a4] px-2 py-1 rounded-sm text-xl' onClick={handleSubmit}>Save</button>
+      <Link  to="/">
+      <button className='bg-red-900 px-2 py-1 rounded-sm text-xl'>Back</button>
+      </Link>
+      </div>
     </form>
   );
 };

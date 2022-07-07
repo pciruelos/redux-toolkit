@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = [
   {
     id:"1",
-    title:"task 1",
-    description: "task 1 description",
+    title:"Task Title number 1",
+    description: "Task Description number 2",
     completed: false
   },
   {
     id:"2",
-    title:"task 2",
-    description: "task 2 description",
+    title:"Task Title number 1",
+    description: "Task Description number 2",
     completed: false
   }
 ]
